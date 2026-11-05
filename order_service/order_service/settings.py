@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +127,7 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+USER_SERVICE_URL = "http://localhost:8001"
+PRODUCT_SERVICE_URL = "http://localhost:8002"
+SERVICE_TIMEOUT = 3  # seconds
