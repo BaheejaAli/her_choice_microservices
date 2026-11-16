@@ -1,4 +1,20 @@
-.venv/
+# Python
 __pycache__/
-*.sqlite3
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Django databases
+db.sqlite3
+
+# Environment variables
 .env
+
+# Editor temporary files
+*.swp
+*.swo
+
+# Django static files
+staticfiles/

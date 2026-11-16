@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 
 from pathlib import Path
 
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,8 +27,12 @@ SECRET_KEY = 'django-insecure-sxi6(7x^y(t5hwd%f@^*bs(0se0n9gog3og!u-371zx-a5a3om
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "order-service",
+    "api-gateway",
+]
 
 # Application definition
 
@@ -128,6 +134,14 @@ MAILERS = {
     },
 }
 
-USER_SERVICE_URL = "http://localhost:8001"
-PRODUCT_SERVICE_URL = "http://localhost:8002"
-SERVICE_TIMEOUT = 3  # seconds
+USER_SERVICE_URL = os.getenv(
+    "USER_SERVICE_URL",
+    "http://127.0.0.1:8001"
+)
+
+PRODUCT_SERVICE_URL = os.getenv(
+    "PRODUCT_SERVICE_URL",
+    "http://127.0.0.1:8002"
+)
+
+SERVICE_TIMEOUT = 5
